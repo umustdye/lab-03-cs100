@@ -2,12 +2,19 @@
 #define __OP_HPP__
 
 #include "base.hpp"
+#include <sstream>//Since std::to_string doesn't allow precision other than 6 digits for doubles
 
 class Op : public Base {
     public:
-        Op(double value) : Base() { }
-        virtual double evaluate() { return 0.0; }
-        virtual std::string stringify() { return ""; }
+        double value;
+        Op(double value) : Base(), value(value) { }
+        virtual ~Op() {}
+        virtual double evaluate() override { return value; }
+        virtual std::string stringify() override {
+            std::stringstream strm;
+            strm<<value;
+            return strm.str();
+        }
 };
 
 #endif //__OP_HPP__
