@@ -10,6 +10,7 @@ ADD_EXECUTABLE(test
     src/mult_test.cpp
     src/sub_test.cpp
     src/div_test.cpp
+    src/rand_test.cpp
 )
 
 TARGET_LINK_LIBRARIES(test gtest)
