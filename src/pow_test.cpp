@@ -27,3 +27,13 @@ TEST(PowTest, FractionalEvaluate) {
     Pow obj(new Op(4), new Op(1.5));
     EXPECT_EQ(obj.evaluate(), 8);
 }
+
+TEST(PowTestStr, ZeroBaseStr) {
+    Pow obj(new Op(0), new Op(52));
+    EXPECT_EQ(obj.stringify(), "(0**52)");
+}
+
+TEST(PowTestStr, FractionalStr) {
+    Pow obj(new Op(4), new Op(1.5));
+    EXPECT_EQ(obj.stringify(), "(4**1.5)");
+}

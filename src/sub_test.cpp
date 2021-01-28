@@ -62,4 +62,16 @@ TEST(SubTest, SubNegPos)
 	EXPECT_NEAR(test->evaluate(), -19.4, .0000001);
 }
 
+TEST(SubTestStr, SubZeroPos)
+{
+	Sub* test = new Sub(new ZeroOpMock(), new PositiveOpMock());
+	EXPECT_EQ(test->stringify(), "(0-6.9)");
+}
+
+TEST(SubTestStr, SubPosNeg)
+{
+	Sub* test = new Sub(new PositiveOpMock(), new NegativeOpMock());
+	EXPECT_EQ(test->stringify(), "(6.9--12.5)");
+}
+
 #endif //__SUB_TEST_HPP__
